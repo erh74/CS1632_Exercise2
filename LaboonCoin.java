@@ -109,41 +109,18 @@ public class LaboonCoin {
 
     	// String hex = Integer.toHexString(hash);
       String hex = String.format("%08x",hash);
-      if( hex.startsWith("000")){
+      String str_num = "";
+
+      for(int i = 0; i < difficulty; i++){
+        str_num = str_num + '0';
+      }
+
+      if(hex.startsWith(str_num)){
         return true;
       }
       else{
         return false;
       }
-      // System.out.println("here1");
-      // hex = hex.substring(0, 2);
-      // System.out.println("here2");
-      //
-      //
-      //
-	    // int count = 0;
-    	// char[] char_arr= hex.toCharArray();
-      // System.out.println("here3");
-      //
-      //
-    	// for(char num : char_arr){
-    	// 	if( num == '0'){
-      //     count = count + 1;
-      //     System.out.println("here4");
-      //   }
-      //   System.out.println("here5");
-      //
-    	// }
-    	// if (count == difficulty){
-      //   System.out.println("here6");
-      //
-      //   return true;
-      // }
-      // else{
-      //   System.out.println("here7");
-      //
-      //   return false;
-      // }
 
     }
 
@@ -174,7 +151,7 @@ public class LaboonCoin {
 	      // System.out.println("Trying: " + toTry + ".. ");
 
 	    hashVal = hash(toTry);
-	       System.out.println("hash: " + String.format("%08x", hashVal));
+	      //  System.out.println("hash: " + String.format("%08x", hashVal));
 	    if (validHash(difficulty, hashVal)) {
 		foundNonce = true;
 	    } else {
