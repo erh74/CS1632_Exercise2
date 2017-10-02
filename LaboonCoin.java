@@ -80,6 +80,8 @@ public class LaboonCoin {
      */
 
     public int hash(String data) {
+      if (data == null) return 0x00989680;
+
       char[] char_arr = data.toCharArray();
     	int n = 10000000;
 
@@ -107,7 +109,6 @@ public class LaboonCoin {
 
     public boolean validHash(int difficulty, int hash) {
 
-    	// String hex = Integer.toHexString(hash);
       String hex = String.format("%08x",hash);
       String str_num = "";
 
